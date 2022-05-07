@@ -1,35 +1,14 @@
 using GeometryLib.Interfaces;
 
 namespace GeometryLib;
-
+// Сначала при попытке создания экземпляра класса с недопустимыми данными я выкидывал экзепшен, но подумав решил, 
+// что это будет неудобно использовать и поэтому решил сделать через статический метод TryCreate
 public class Circle : ICircle
 {
-    private double? _radius;
-    public double Radius
-    {
-        get
-        {
-            if (_radius != null) return (double) _radius;
-            throw new ArgumentException("The radius was not set");
-        }
-        set
-        {   
-            if (value <= 0) throw new ArgumentException("The radius must be greater than 0");
-            _radius = value;
-        }
-    }
-
-    private double _area;
-    public double Area
-    {
-        get
-        {
-            if (_area == 0) _area = Math.PI * Math.Pow(Radius, 2);
-            return _area;
-        }
-    }
-
-    public Circle(double radius)
+    public double Radius { get; set; }
+    public double Area => Math.PI * Math.Pow(Radius, 2);
+    public static Circle? TryCreate(double radius) => radius <= 0 ? null : new Circle(radius);
+    private Circle(double radius)
     {
         Radius = radius;
     }

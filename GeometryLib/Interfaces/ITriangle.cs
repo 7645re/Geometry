@@ -1,9 +1,9 @@
 namespace GeometryLib.Interfaces;
 
-public interface ITriangle : IFigure
+public interface ITriangle : IFigure<ITriangle>
 {
-    public double SideA { get; set; }
-    public double SideB { get; set; }
-    public double SideC { get; set; }
+    public int A { get; set; }
+    public int B { get; set; }
+    public int C { get; set; }
     public bool IsRightTriangle { get;}
 }

@@ -15,37 +15,30 @@ public class TriangleTests
     [TestCase(1, -1, 1)]
     [TestCase(1, 1, -1)]
     [TestCase(0, 0, 0)]
-    public void NegativeSideTest(double a, double b, double c)
+    public void NegativeSideTest(int a, int b, int c)
     {
-        Assert.Catch<ArgumentException>(() =>
-        {
-            var triangle = new Triangle(a,b,c);
-        });
+        Assert.Null(Triangle.TryCreate(a,b,c));
     }
     
     [Test]
     public void NotTriangleTest()
     {
-        Assert.Catch<ArgumentException>(() =>
-        {
-            var triangle = new Triangle(1, 1, 4);
-        });
+        Assert.Null(Triangle.TryCreate(1, 1, 4));
     }
     
     [Test]
     public void AreaTest()
     {
-        var triangle = new Triangle(3,4,5);
-        Assert.AreEqual(triangle.Area, 6);
+        var triangle = Triangle.TryCreate(3, 4, 5);
+        if (triangle != null) Assert.AreEqual(triangle.Area, 6);
     }
     
     [TestCase(3, 4, 3, ExpectedResult = false)]
     [TestCase(3, 4, 5, ExpectedResult = true)]
-    [TestCase(3, 4, 5.000000001, ExpectedResult = true)]
-    public bool NotRightTriangle(double a, double b, double c)
+    public bool NotRightTriangle(int a, int b, int c)
     {
-        var triangle = new Triangle(a, b, c);
-        var isRight = triangle.IsRightTriangle;
+        var triangle = Triangle.TryCreate(a, b, c);
+        var isRight = triangle is {IsRightTriangle: true};
         return isRight;
     }
 }

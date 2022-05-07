@@ -1,6 +1,6 @@
 namespace GeometryLib.Interfaces;
 
-public interface ICircle : IFigure
+public interface ICircle : IFigure<ICircle>
 {
     public double Radius { get; set; }
 }

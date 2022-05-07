@@ -12,28 +12,15 @@ public class CircleTests
     }
 
     [Test]
-    public void ZeroRadiusTest()
-    {
-        Assert.Catch<ArgumentException>(() =>
-        {
-            var circle = new Circle(0);
-        });
-    }
-
+    public void ZeroRadiusTest() => Assert.Null(Circle.TryCreate(-10));
 
     [Test]
-    public void NegativeRadiusTest()
-    {
-        Assert.Catch<ArgumentException>(() =>
-        {
-            var circle = new Circle(-10);
-        });
-    }
+    public void NegativeRadiusTest() => Assert.Null(Circle.TryCreate(-10));
 
     [Test]
     public void AreaTest()
     {
-        var circle = new Circle(11);
-        Assert.AreEqual(circle.Area, 380.132711084365);
+        var circle = Circle.TryCreate(11);
+        if (circle != null) Assert.AreEqual(circle.Area, 380.132711084365);
     }
 }
