@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryLib", "GeometryLib\GeometryLib.csproj", "{FB26435B-2491-4790-8FD1-9F9C6E98F924}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{B9888695-03F0-47C0-AFAA-D9DAA47BD12A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryLibTest", "GeometryLibTest\GeometryLibTest.csproj", "{073B7D36-881C-4C8E-9D80-72034C52F6BC}"
 EndProject
 Global
@@ -16,10 +14,6 @@ Global
 		{FB26435B-2491-4790-8FD1-9F9C6E98F924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB26435B-2491-4790-8FD1-9F9C6E98F924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB26435B-2491-4790-8FD1-9F9C6E98F924}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9888695-03F0-47C0-AFAA-D9DAA47BD12A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9888695-03F0-47C0-AFAA-D9DAA47BD12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9888695-03F0-47C0-AFAA-D9DAA47BD12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9888695-03F0-47C0-AFAA-D9DAA47BD12A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{073B7D36-881C-4C8E-9D80-72034C52F6BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{073B7D36-881C-4C8E-9D80-72034C52F6BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{073B7D36-881C-4C8E-9D80-72034C52F6BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
