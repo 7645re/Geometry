@@ -17,27 +17,27 @@ public class TriangleTests
     [TestCase(0, 0, 0)]
     public void NegativeSideTest(int a, int b, int c)
     {
-        Assert.Null(Triangle.TryCreate(a,b,c));
+        Assert.IsFalse(Triangle.TryCreate(a, b, c, out var _));
     }
-    
+
     [Test]
     public void NotTriangleTest()
     {
-        Assert.Null(Triangle.TryCreate(1, 1, 4));
+        Assert.IsFalse(Triangle.TryCreate(1, 1, 4, out var _));
     }
-    
+
     [Test]
     public void AreaTest()
     {
-        var triangle = Triangle.TryCreate(3, 4, 5);
+        Triangle.TryCreate(3, 4, 5, out var triangle);
         if (triangle != null) Assert.AreEqual(triangle.Area, 6);
     }
-    
+
     [TestCase(3, 4, 3, ExpectedResult = false)]
     [TestCase(3, 4, 5, ExpectedResult = true)]
     public bool NotRightTriangle(int a, int b, int c)
     {
-        var triangle = Triangle.TryCreate(a, b, c);
+        Triangle.TryCreate(a, b, c, out var triangle);
         var isRight = triangle is {IsRightTriangle: true};
         return isRight;
     }

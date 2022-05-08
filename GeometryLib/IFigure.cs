@@ -1,6 +1,6 @@
 namespace GeometryLib.Interfaces;
 
-public interface IFigure<T>
+public interface IFigure
 {
     public double Area { get; }
 }

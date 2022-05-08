@@ -12,15 +12,15 @@ public class CircleTests
     }
 
     [Test]
-    public void ZeroRadiusTest() => Assert.Null(Circle.TryCreate(-10));
+    public void ZeroRadiusTest() => Assert.IsFalse(Circle.TryCreate(0, out var _));
 
     [Test]
-    public void NegativeRadiusTest() => Assert.Null(Circle.TryCreate(-10));
+    public void NegativeRadiusTest() => Assert.IsFalse(Circle.TryCreate(-10, out var _));
 
     [Test]
     public void AreaTest()
     {
-        var circle = Circle.TryCreate(11);
+        Circle.TryCreate(11, out var circle);
         if (circle != null) Assert.AreEqual(circle.Area, 380.132711084365);
     }
 }
