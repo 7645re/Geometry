@@ -5,9 +5,9 @@ namespace GeometryLib;
 
 public class Triangle : ITriangle
 {
-    public int A { get; set; }
-    public int B { get; set; }
-    public int C { get; set; }
+    public int A { get; }
+    public int B { get; }
+    public int C { get; }
     public bool IsRightTriangle {
         get
         {
