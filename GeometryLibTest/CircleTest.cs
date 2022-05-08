@@ -1,4 +1,3 @@
-using System;
 using GeometryLib;
 using NUnit.Framework;
 
@@ -21,6 +20,6 @@ public class CircleTests
     public void AreaTest()
     {
         Circle.TryCreate(11, out var circle);
-        if (circle != null) Assert.AreEqual(circle.Area, 380.132711084365);
+        Assert.AreEqual(circle!.Area, 380.132711084365);
     }
 }

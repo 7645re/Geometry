@@ -1,5 +1,3 @@
-using GeometryLib.Interfaces;
-
 namespace GeometryLib;
 
 public class Circle : IFigure

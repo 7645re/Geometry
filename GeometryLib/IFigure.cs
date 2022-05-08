@@ -1,6 +1,6 @@
-namespace GeometryLib.Interfaces;
+namespace GeometryLib;
 
 public interface IFigure
-{
-    public double Area { get; }
+{ 
+    double Area { get; }
 }

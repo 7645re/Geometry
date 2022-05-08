@@ -1,6 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
-using GeometryLib.Interfaces;
-
 namespace GeometryLib;
 
 public class Triangle : IFigure
