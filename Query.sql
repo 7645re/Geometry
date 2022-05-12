@@ -1,30 +1,40 @@
-CREATE TABLE Product(
-	Id bigint IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Name text NOT NULL
+CREATE TABLE Products (
+	Id INT PRIMARY KEY,
+	"Name" TEXT
 );
 
-CREATE TABLE Category(
-	Id smallint IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	Name text NOT NULL
+INSERT INTO Products
+VALUES
+	(3, '60 solfeggio for two voices'),
+	(2, 'Mascarons of St. Petersburg'),
+	(1, 'Deniskins stories');
+
+CREATE TABLE Categories (
+	Id INT PRIMARY KEY,
+	"Name" TEXT
 );
 
-CREATE TABLE ProductCategory(
-	Id bigint IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	ProductId smallint NOT NULL,
-	CategoryId smallint NOT NULL
+INSERT INTO Categories
+VALUES
+	(1, 'Education'),
+	(2, 'Psychology'),
+	(3, 'Art');
+
+CREATE TABLE ProductCategories (
+	ProductId INT FOREIGN KEY REFERENCES Products(Id),
+	CategoryId INT FOREIGN KEY REFERENCES Categories(Id),
+	PRIMARY KEY (ProductId, CategoryId)
 );
 
-ALTER TABLE ProductCategory  
-ADD CONSTRAINT FK_ProductCategory_Product_ProductId 
-FOREIGN KEY(ProductId)
-REFERENCES Product (Id);
+INSERT INTO ProductCategories
+VALUES
+	(1, 1),
+	(1, 3),
+	(2, 2);
 
-ALTER TABLE ProductCategory
-ADD CONSTRAINT FK_ProductCategory_Category_CategoryId 
-FOREIGN KEY(CategoryId)
-REFERENCES Category (Id);
-
-SELECT p.Name AS ProductName, c.Name AS CategoryName
-FROM Product p LEFT JOIN ProductCategory pc ON pc.ProductId = p.Id
-LEFT JOIN Category c ON pc.CategoryId = c.Id
-ORDER BY p.Name, c.Name
+SELECT P."Name", C."Name"
+FROM Products P
+LEFT JOIN ProductCategories PC
+	ON P.Id = PC.ProductId
+LEFT JOIN Categories C
+	ON PC.CategoryId = C.Id;
