@@ -24,23 +24,23 @@ public class Triangle : IFigure
         }
     }
 
-    public static bool TryCreate(int a, int b, int c, out Triangle? circle)
+    public static bool TryCreate(int a, int b, int c, out Triangle? triangle)
     {
         // Стороны треугольника должны быть больше 0
         if (!(a > 0 && b > 0 && c > 0))
         {
-            circle = null;
+            triangle = null;
             return false;
         }
 
         // Треугольник существует, если сумма двух его сторон меньше третьей
         if (!(a + b > c && a + c > b && c + b > a))
         {
-            circle = null;
+            triangle = null;
             return false;
         }
 
-        circle = new Triangle(a, b, c);
+        triangle = new Triangle(a, b, c);
         return true;
     }
 
